@@ -1,0 +1,308 @@
+{
+  "properties": {
+    "connectionReferences": {},
+    "definition": {
+      "$schema": "https://schema.management.azure.com/providers/Microsoft.Logic/schemas/2016-06-01/workflowdefinition.json#",
+      "contentVersion": "undefined",
+      "parameters": {
+        "$authentication": {
+          "defaultValue": {},
+          "type": "SecureObject"
+        },
+        "$connections": {
+          "defaultValue": {},
+          "type": "Object"
+        }
+      },
+      "triggers": {
+        "manual": {
+          "type": "Request",
+          "kind": "Button",
+          "inputs": {
+            "schema": {
+              "type": "object",
+              "properties": {},
+              "required": []
+            }
+          }
+        }
+      },
+      "actions": {
+        "Initialize_variable_Template": {
+          "runAfter": {},
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Template",
+                "type": "string",
+                "value": "<!DOCTYPE html>\\n<html>\\n  <body style=\\\"font-family:Segoe UI, Arial, sans-serif; color:#2b2b2b;\\\">\\n\\n    <h2>Hello {{FirstName}} {{LastName}},</h2>\\n\\n    <p>Thank you for choosing <strong>{{CompanyName}}</strong>!</p>\\n\\n    <h3>Subscription</h3>\\n    <p>\\n      <strong>Name:</strong> {{SubscriptionName}}<br/>\\n      <strong>ID:</strong> {{SubscriptionId}}<br/>\\n      <strong>Renewal Date:</strong> {{RenewalDate}}<br/>\\n      <strong>Plan Type:</strong> {{PlanType}}<br/>\\n      <strong>Plan Tier:</strong> {{PlanTier}}<br/>\\n      <strong>Renewal Term:</strong> {{RenewalTerm}}\\n    </p>\\n\\n    <h3>Billing</h3>\\n    <p>\\n      <strong>Next Billing Date:</strong> {{NextBillingDate}}<br/>\\n      <strong>Amount:</strong> {{Amount}} {{Currency}}<br/>\\n      <strong>Payment Method:</strong> {{PaymentMethod}} (**** **** **** {{Last4}})<br/>\\n      <strong>Invoice Number:</strong> {{InvoiceNumber}}<br/>\\n      <strong>Invoice Date:</strong> {{InvoiceDate}}\\n    </p>\\n\\n    <h3>Order & Shipment</h3>\\n    <p>\\n      <strong>Order ID:</strong> {{OrderId}}<br/>\\n      <strong>Order Date:</strong> {{OrderDate}}<br/>\\n      <strong>Delivery Window:</strong> {{DeliveryWindow}}<br/>\\n      <strong>Ship Date:</strong> {{ShipDate}}<br/>\\n      <strong>Tracking Number:</strong> {{TrackingNumber}}\\n    </p>\\n\\n    <h3>Usage</h3>\\n    <p>\\n      <strong>This Period:</strong> {{UsageThisPeriod}} {{UsageUnit}}<br/>\\n      <strong>License Count:</strong> {{LicenseCount}}<br/>\\n      <strong>Feature Pack:</strong> {{FeaturePack}}\\n    </p>\\n\\n    <h3>Account & Support</h3>\\n    <p>\\n      <strong>Customer ID:</strong> {{CustomerId}}<br/>\\n      <strong>Account Manager:</strong> {{AccountManager}}<br/>\\n      <strong>Department:</strong> {{Department}}<br/>\\n      <strong>Cost Center:</strong> {{CostCenter}}<br/>\\n      <strong>PO Number:</strong> {{PoNumber}}<br/>\\n      <strong>Project Name:</strong> {{ProjectName}}<br/>\\n      <strong>Email:</strong> <a href=\\\"mailto:{{Email}}\\\">{{Email}}</a><br/>\\n      <strong>Phone:</strong> <a href=\\\"tel:{{PhoneNumber}}\\\">{{PhoneNumber}}</a><br/>\\n      <strong>Support Email:</strong> <a href=\\\"mailto:{{SupportEmail}}\\\">{{SupportEmail}}</a><br/>\\n      <strong>Portal:</strong> <a href=\\\"{{PortalUrl}}\\\">{{PortalUrl}}</a><br/>\\n      <strong>Help Center:</strong> <a href=\\\"{{HelpCenterUrl}}\\\">{{HelpCenterUrl}}</a><br/>\\n      <strong>SLA:</strong> {{SLA}}\\n    </p>\\n\\n    <h3>Contract</h3>\\n    <p>\\n      <strong>Contract ID:</strong> {{ContractId}}<br/>\\n      <strong>Contract Start:</strong> {{ContractStart}}<br/>\\n      <strong>Contract End:</strong> {{ContractEnd}}\\n    </p>\\n\\n    <h3>Address</h3>\\n    <p>\\n      {{AddressLine1}}<br/>\\n      {{AddressLine2}}<br/>\\n      {{City}}, {{State}} {{PostalCode}}<br/>\\n      {{Country}}\\n    </p>\\n\\n    <h3>Context</h3>\\n    <p>\\n      <strong>Region:</strong> {{Region}}<br/>\\n      <strong>Environment:</strong> {{Environment}}\\n    </p>\\n\\n    <h3>Promotion</h3>\\n    <p>\\n      <strong>Discount Code:</strong> {{DiscountCode}}<br/>\\n      <strong>Expiry Date:</strong> {{ExpiryDate}}\\n    </p>\\n\\n    <hr style=\\\"border:none;border-top:1px solid #ddd;\\\" />\\n\\n    <p style=\\\"font-size:12px;color:#666;\\\">\\n      This email was sent to {{FirstName}} at {{Email}} for {{CompanyName}} in {{Region}} ({{Environment}}).\\n    </p>\\n\\n  </body>\\n</html>"
+              }
+            ]
+          }
+        },
+        "Initialize_variable_Placeholders": {
+          "runAfter": {
+            "Initialize_variable_Template": [
+              "Succeeded"
+            ]
+          },
+          "type": "InitializeVariable",
+          "inputs": {
+            "variables": [
+              {
+                "name": "Placeholders",
+                "type": "array",
+                "value": [
+                  {
+                    "Key": "FirstName",
+                    "Value": "Venkat"
+                  },
+                  {
+                    "Key": "LastName",
+                    "Value": "Raju"
+                  },
+                  {
+                    "Key": "CompanyName",
+                    "Value": "Contoso Solutions"
+                  },
+                  {
+                    "Key": "SubscriptionName",
+                    "Value": "Contoso Premium Suite"
+                  },
+                  {
+                    "Key": "SubscriptionId",
+                    "Value": "SUB-448201"
+                  },
+                  {
+                    "Key": "RenewalDate",
+                    "Value": "10-Feb-2026"
+                  },
+                  {
+                    "Key": "PlanType",
+                    "Value": "Enterprise"
+                  },
+                  {
+                    "Key": "PlanTier",
+                    "Value": "Level-3"
+                  },
+                  {
+                    "Key": "NextBillingDate",
+                    "Value": "10-Mar-2026"
+                  },
+                  {
+                    "Key": "Currency",
+                    "Value": "USD"
+                  },
+                  {
+                    "Key": "Amount",
+                    "Value": "199.00"
+                  },
+                  {
+                    "Key": "SupportEmail",
+                    "Value": "support@contoso.com"
+                  },
+                  {
+                    "Key": "AccountManager",
+                    "Value": "John Doe"
+                  },
+                  {
+                    "Key": "CustomerId",
+                    "Value": "CUST-99214"
+                  },
+                  {
+                    "Key": "Region",
+                    "Value": "APAC"
+                  },
+                  {
+                    "Key": "Environment",
+                    "Value": "Production"
+                  },
+                  {
+                    "Key": "ShipDate",
+                    "Value": "12-Feb-2026"
+                  },
+                  {
+                    "Key": "TrackingNumber",
+                    "Value": "TRK123456789"
+                  },
+                  {
+                    "Key": "DiscountCode",
+                    "Value": "THANKYOU15"
+                  },
+                  {
+                    "Key": "ExpiryDate",
+                    "Value": "28-Feb-2026"
+                  },
+                  {
+                    "Key": "AddressLine1",
+                    "Value": "123 Tech Park"
+                  },
+                  {
+                    "Key": "AddressLine2",
+                    "Value": "Building 4"
+                  },
+                  {
+                    "Key": "City",
+                    "Value": "Hyderabad"
+                  },
+                  {
+                    "Key": "State",
+                    "Value": "TS"
+                  },
+                  {
+                    "Key": "PostalCode",
+                    "Value": "500081"
+                  },
+                  {
+                    "Key": "Country",
+                    "Value": "India"
+                  },
+                  {
+                    "Key": "PhoneNumber",
+                    "Value": "+91-40-1234-5678"
+                  },
+                  {
+                    "Key": "Email",
+                    "Value": "venkat.raju@example.com"
+                  },
+                  {
+                    "Key": "OrderId",
+                    "Value": "ORD-778899"
+                  },
+                  {
+                    "Key": "OrderDate",
+                    "Value": "09-Feb-2026"
+                  },
+                  {
+                    "Key": "DeliveryWindow",
+                    "Value": "10:00-18:00 IST"
+                  },
+                  {
+                    "Key": "InvoiceNumber",
+                    "Value": "INV-2026-00123"
+                  },
+                  {
+                    "Key": "InvoiceDate",
+                    "Value": "10-Feb-2026"
+                  },
+                  {
+                    "Key": "PaymentMethod",
+                    "Value": "Credit Card"
+                  },
+                  {
+                    "Key": "Last4",
+                    "Value": "4242"
+                  },
+                  {
+                    "Key": "PortalUrl",
+                    "Value": "https://portal.contoso.com"
+                  },
+                  {
+                    "Key": "HelpCenterUrl",
+                    "Value": "https://support.contoso.com/help"
+                  },
+                  {
+                    "Key": "SLA",
+                    "Value": "99.9% Uptime"
+                  },
+                  {
+                    "Key": "ContractId",
+                    "Value": "CT-555-2026"
+                  },
+                  {
+                    "Key": "ContractStart",
+                    "Value": "01-Jan-2026"
+                  },
+                  {
+                    "Key": "ContractEnd",
+                    "Value": "31-Dec-2026"
+                  },
+                  {
+                    "Key": "LicenseCount",
+                    "Value": "250"
+                  },
+                  {
+                    "Key": "FeaturePack",
+                    "Value": "Advanced Analytics"
+                  },
+                  {
+                    "Key": "UsageThisPeriod",
+                    "Value": "1450"
+                  },
+                  {
+                    "Key": "UsageUnit",
+                    "Value": "GB"
+                  },
+                  {
+                    "Key": "RenewalTerm",
+                    "Value": "12 months"
+                  },
+                  {
+                    "Key": "Department",
+                    "Value": "Engineering"
+                  },
+                  {
+                    "Key": "CostCenter",
+                    "Value": "CC-ENG-0042"
+                  },
+                  {
+                    "Key": "PoNumber",
+                    "Value": "PO-987654"
+                  },
+                  {
+                    "Key": "ProjectName",
+                    "Value": "Phoenix"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        "Select_Pairs": {
+          "runAfter": {
+            "Initialize_variable_Placeholders": [
+              "Succeeded"
+            ]
+          },
+          "type": "Select",
+          "inputs": {
+            "from": "@variables('Placeholders')",
+            "select": {
+              "pair": "@{concat('{{', item()?['Key'], '}}==', item()?['Value'])}"
+            }
+          }
+        },
+        "ReducerString": {
+          "runAfter": {
+            "Select_Pairs": [
+              "Succeeded"
+            ]
+          },
+          "type": "Compose",
+          "inputs": "@if(\r\n  greater(length(outputs('Select_Pairs')?['body']), 0),\r\n  replace(\r\n    replace(\r\n      replace(\r\n        string(outputs('Select_Pairs')?['body']),\r\n        '[{\"pair\":\"',\r\n        ''\r\n      ),\r\n      '\"},{\"pair\":\"',\r\n      '||'\r\n    ),\r\n    '\"}]',\r\n    ''\r\n  ),\r\n  ''\r\n)"
+        },
+        "PairsArray": {
+          "runAfter": {
+            "ReducerString": [
+              "Succeeded"
+            ]
+          },
+          "type": "Compose",
+          "inputs": "@if(\r\n  equals(outputs('ReducerString'), ''),\r\n  createArray(),\r\n  split(outputs('ReducerString'), '||')\r\n)"
+        },
+        "FinalHTML": {
+          "runAfter": {
+            "PairsArray": [
+              "Succeeded"
+            ]
+          },
+          "type": "Compose",
+          "inputs": "@if(\r\n  greater(length(outputs('PairsArray')), 0),\r\n  replace(\r\n    if(\r\n      greater(length(outputs('PairsArray')), 1),\r\n      replace(\r\n        if(\r\n          greater(length(outputs('PairsArray')), 2),\r\n          replace(\r\n            if(\r\n              greater(length(outputs('PairsArray')), 3),\r\n              replace(\r\n                if(\r\n                  greater(length(outputs('PairsArray')), 4),\r\n                  replace(\r\n                    if(\r\n                      greater(length(outputs('PairsArray')), 5),\r\n                      replace(\r\n                        if(\r\n                          greater(length(outputs('PairsArray')), 6),\r\n                          replace(\r\n                            if(\r\n                              greater(length(outputs('PairsArray')), 7),\r\n                              replace(\r\n                                if(\r\n                                  greater(length(outputs('PairsArray')), 8),\r\n                                  replace(\r\n                                    if(\r\n                                      greater(length(outputs('PairsArray')), 9),\r\n                                      replace(\r\n                                        if(\r\n                                          greater(length(outputs('PairsArray')), 10),\r\n                                          replace(\r\n                                            if(\r\n                                              greater(length(outputs('PairsArray')), 11),\r\n                                              replace(\r\n                                                variables('Template'),\r\n                                                split(outputs('PairsArray')[11], '==')[0],\r\n                                                split(outputs('PairsArray')[11], '==')[1]\r\n                                              ),\r\n                                              variables('Template')\r\n                                            ),\r\n                                            split(outputs('PairsArray')[10], '==')[0],\r\n                                            split(outputs('PairsArray')[10], '==')[1]\r\n                                          ),\r\n                                          variables('Template')\r\n                                        ),\r\n                                        split(outputs('PairsArray')[9], '==')[0],\r\n                                        split(outputs('PairsArray')[9], '==')[1]\r\n                                      ),\r\n                                      variables('Template')\r\n                                    ),\r\n                                    split(outputs('PairsArray')[8], '==')[0],\r\n                                    split(outputs('PairsArray')[8], '==')[1]\r\n                                  ),\r\n                                  variables('Template')\r\n                                ),\r\n                                split(outputs('PairsArray')[7], '==')[0],\r\n                                split(outputs('PairsArray')[7], '==')[1]\r\n                              ),\r\n                              variables('Template')\r\n                            ),\r\n                            split(outputs('PairsArray')[6], '==')[0],\r\n                            split(outputs('PairsArray')[6], '==')[1]\r\n                          ),\r\n                          variables('Template')\r\n                        ),\r\n                        split(outputs('PairsArray')[5], '==')[0],\r\n                        split(outputs('PairsArray')[5], '==')[1]\r\n                      ),\r\n                      variables('Template')\r\n                    ),\r\n                    split(outputs('PairsArray')[4], '==')[0],\r\n                    split(outputs('PairsArray')[4], '==')[1]\r\n                  ),\r\n                  variables('Template')\r\n                ),\r\n                split(outputs('PairsArray')[3], '==')[0],\r\n                split(outputs('PairsArray')[3], '==')[1]\r\n              ),\r\n              variables('Template')\r\n            ),\r\n            split(outputs('PairsArray')[2], '==')[0],\r\n            split(outputs('PairsArray')[2], '==')[1]\r\n          ),\r\n          variables('Template')\r\n        ),\r\n        split(outputs('PairsArray')[1], '==')[0],\r\n        split(outputs('PairsArray')[1], '==')[1]\r\n      ),\r\n      variables('Template')\r\n    ),\r\n    split(outputs('PairsArray')[0], '==')[0],\r\n    split(outputs('PairsArray')[0], '==')[1]\r\n  ),\r\n  variables('Template')\r\n)"
+        }
+      }
+    },
+    "templateName": null
+  },
+  "schemaVersion": "1.0.0.0"
+}
