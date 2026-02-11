@@ -16,6 +16,9 @@
       },
       "triggers": {
         "manual": {
+          "metadata": {
+            "operationMetadataId": "092edf94-f80d-416a-a2bc-b0ca4d167a16"
+          },
           "type": "Request",
           "kind": "Button",
           "inputs": {
@@ -30,13 +33,16 @@
       "actions": {
         "Initialize_variable_Template": {
           "runAfter": {},
+          "metadata": {
+            "operationMetadataId": "c895285d-86a7-4694-9b60-90069806ca1a"
+          },
           "type": "InitializeVariable",
           "inputs": {
             "variables": [
               {
-                "name": "Template",
+                "name": "varEmailTemplate",
                 "type": "string",
-                "value": "<!DOCTYPE html>\\n<html>\\n  <body style=\\\"font-family:Segoe UI, Arial, sans-serif; color:#2b2b2b;\\\">\\n\\n    <h2>Hello {{FirstName}} {{LastName}},</h2>\\n\\n    <p>Thank you for choosing <strong>{{CompanyName}}</strong>!</p>\\n\\n    <h3>Subscription</h3>\\n    <p>\\n      <strong>Name:</strong> {{SubscriptionName}}<br/>\\n      <strong>ID:</strong> {{SubscriptionId}}<br/>\\n      <strong>Renewal Date:</strong> {{RenewalDate}}<br/>\\n      <strong>Plan Type:</strong> {{PlanType}}<br/>\\n      <strong>Plan Tier:</strong> {{PlanTier}}<br/>\\n      <strong>Renewal Term:</strong> {{RenewalTerm}}\\n    </p>\\n\\n    <h3>Billing</h3>\\n    <p>\\n      <strong>Next Billing Date:</strong> {{NextBillingDate}}<br/>\\n      <strong>Amount:</strong> {{Amount}} {{Currency}}<br/>\\n      <strong>Payment Method:</strong> {{PaymentMethod}} (**** **** **** {{Last4}})<br/>\\n      <strong>Invoice Number:</strong> {{InvoiceNumber}}<br/>\\n      <strong>Invoice Date:</strong> {{InvoiceDate}}\\n    </p>\\n\\n    <h3>Order & Shipment</h3>\\n    <p>\\n      <strong>Order ID:</strong> {{OrderId}}<br/>\\n      <strong>Order Date:</strong> {{OrderDate}}<br/>\\n      <strong>Delivery Window:</strong> {{DeliveryWindow}}<br/>\\n      <strong>Ship Date:</strong> {{ShipDate}}<br/>\\n      <strong>Tracking Number:</strong> {{TrackingNumber}}\\n    </p>\\n\\n    <h3>Usage</h3>\\n    <p>\\n      <strong>This Period:</strong> {{UsageThisPeriod}} {{UsageUnit}}<br/>\\n      <strong>License Count:</strong> {{LicenseCount}}<br/>\\n      <strong>Feature Pack:</strong> {{FeaturePack}}\\n    </p>\\n\\n    <h3>Account & Support</h3>\\n    <p>\\n      <strong>Customer ID:</strong> {{CustomerId}}<br/>\\n      <strong>Account Manager:</strong> {{AccountManager}}<br/>\\n      <strong>Department:</strong> {{Department}}<br/>\\n      <strong>Cost Center:</strong> {{CostCenter}}<br/>\\n      <strong>PO Number:</strong> {{PoNumber}}<br/>\\n      <strong>Project Name:</strong> {{ProjectName}}<br/>\\n      <strong>Email:</strong> <a href=\\\"mailto:{{Email}}\\\">{{Email}}</a><br/>\\n      <strong>Phone:</strong> <a href=\\\"tel:{{PhoneNumber}}\\\">{{PhoneNumber}}</a><br/>\\n      <strong>Support Email:</strong> <a href=\\\"mailto:{{SupportEmail}}\\\">{{SupportEmail}}</a><br/>\\n      <strong>Portal:</strong> <a href=\\\"{{PortalUrl}}\\\">{{PortalUrl}}</a><br/>\\n      <strong>Help Center:</strong> <a href=\\\"{{HelpCenterUrl}}\\\">{{HelpCenterUrl}}</a><br/>\\n      <strong>SLA:</strong> {{SLA}}\\n    </p>\\n\\n    <h3>Contract</h3>\\n    <p>\\n      <strong>Contract ID:</strong> {{ContractId}}<br/>\\n      <strong>Contract Start:</strong> {{ContractStart}}<br/>\\n      <strong>Contract End:</strong> {{ContractEnd}}\\n    </p>\\n\\n    <h3>Address</h3>\\n    <p>\\n      {{AddressLine1}}<br/>\\n      {{AddressLine2}}<br/>\\n      {{City}}, {{State}} {{PostalCode}}<br/>\\n      {{Country}}\\n    </p>\\n\\n    <h3>Context</h3>\\n    <p>\\n      <strong>Region:</strong> {{Region}}<br/>\\n      <strong>Environment:</strong> {{Environment}}\\n    </p>\\n\\n    <h3>Promotion</h3>\\n    <p>\\n      <strong>Discount Code:</strong> {{DiscountCode}}<br/>\\n      <strong>Expiry Date:</strong> {{ExpiryDate}}\\n    </p>\\n\\n    <hr style=\\\"border:none;border-top:1px solid #ddd;\\\" />\\n\\n    <p style=\\\"font-size:12px;color:#666;\\\">\\n      This email was sent to {{FirstName}} at {{Email}} for {{CompanyName}} in {{Region}} ({{Environment}}).\\n    </p>\\n\\n  </body>\\n</html>"
+                "value": "<!DOCTYPE html>\n<html>\n  <body style=\"font-family:Segoe UI, Arial, sans-serif; color:#2b2b2b;\">\n    <h2>Hello [FirstName] [LastName],</h2>\n    <p>Thank you for choosing <strong>[CompanyName]</strong>!</p>\n\n    <h3>Subscription & Billing</h3>\n    <p>\n      <strong>Plan:</strong> [SubscriptionName] ([PlanType])<br/>\n      <strong>ID:</strong> [SubscriptionId]<br/>\n      <strong>Renewal Date:</strong> [RenewalDate]<br/>\n      <strong>Amount:</strong> [Amount] [Currency]<br/>\n      <strong>Payment:</strong> [PaymentMethod] (****[Last4])<br/>\n      <strong>Invoice:</strong> [InvoiceNumber]\n    </p>\n\n    <h3>Order Details</h3>\n    <p>\n      <strong>Order ID:</strong> [OrderId]<br/>\n      <strong>Order Date:</strong> [OrderDate]<br/>\n      <strong>Ship Date:</strong> [ShipDate]<br/>\n      <strong>Tracking:</strong> [TrackingNumber]\n    </p>\n\n    <h3>Usage Stats</h3>\n    <p>\n      <strong>Usage:</strong> [UsageThisPeriod] [UsageUnit]<br/>\n      <strong>Licenses:</strong> [LicenseCount]<br/>\n      <strong>Add-on:</strong> [FeaturePack]\n    </p>\n\n    <h3>Support & Contact</h3>\n    <p>\n      <strong>Manager:</strong> [AccountManager]<br/>\n      <strong>Dept:</strong> [Department]<br/>\n      <strong>Project:</strong> [ProjectName]<br/>\n      <strong>Email:</strong> [Email]<br/>\n      <strong>Support:</strong> [SupportEmail]<br/>\n      <strong>Portal:</strong> <a href=\"[PortalUrl]\">Click Here</a>\n    </p>\n\n    <h3>Contract & Location</h3>\n    <p>\n      <strong>Contract:</strong> [ContractId]<br/>\n      <strong>Ends:</strong> [ContractEnd]<br/>\n      <strong>Region:</strong> [Region]<br/>\n      <strong>City:</strong> [City], [Country]\n    </p>\n\n    <p style=\"font-size:12px;color:#666;\">\n      Ref: [CustomerId] | Code: [DiscountCode]\n    </p>\n  </body>\n</html>"
               }
             ]
           }
@@ -46,6 +52,9 @@
             "Initialize_variable_Template": [
               "Succeeded"
             ]
+          },
+          "metadata": {
+            "operationMetadataId": "982da99f-7c73-40cb-94ba-8f9e65ea5226"
           },
           "type": "InitializeVariable",
           "inputs": {
@@ -68,7 +77,7 @@
                   },
                   {
                     "Key": "SubscriptionName",
-                    "Value": "Contoso Premium Suite"
+                    "Value": "Premium Suite"
                   },
                   {
                     "Key": "SubscriptionId",
@@ -83,108 +92,12 @@
                     "Value": "Enterprise"
                   },
                   {
-                    "Key": "PlanTier",
-                    "Value": "Level-3"
-                  },
-                  {
-                    "Key": "NextBillingDate",
-                    "Value": "10-Mar-2026"
-                  },
-                  {
                     "Key": "Currency",
                     "Value": "USD"
                   },
                   {
                     "Key": "Amount",
                     "Value": "199.00"
-                  },
-                  {
-                    "Key": "SupportEmail",
-                    "Value": "support@contoso.com"
-                  },
-                  {
-                    "Key": "AccountManager",
-                    "Value": "John Doe"
-                  },
-                  {
-                    "Key": "CustomerId",
-                    "Value": "CUST-99214"
-                  },
-                  {
-                    "Key": "Region",
-                    "Value": "APAC"
-                  },
-                  {
-                    "Key": "Environment",
-                    "Value": "Production"
-                  },
-                  {
-                    "Key": "ShipDate",
-                    "Value": "12-Feb-2026"
-                  },
-                  {
-                    "Key": "TrackingNumber",
-                    "Value": "TRK123456789"
-                  },
-                  {
-                    "Key": "DiscountCode",
-                    "Value": "THANKYOU15"
-                  },
-                  {
-                    "Key": "ExpiryDate",
-                    "Value": "28-Feb-2026"
-                  },
-                  {
-                    "Key": "AddressLine1",
-                    "Value": "123 Tech Park"
-                  },
-                  {
-                    "Key": "AddressLine2",
-                    "Value": "Building 4"
-                  },
-                  {
-                    "Key": "City",
-                    "Value": "Hyderabad"
-                  },
-                  {
-                    "Key": "State",
-                    "Value": "TS"
-                  },
-                  {
-                    "Key": "PostalCode",
-                    "Value": "500081"
-                  },
-                  {
-                    "Key": "Country",
-                    "Value": "India"
-                  },
-                  {
-                    "Key": "PhoneNumber",
-                    "Value": "+91-40-1234-5678"
-                  },
-                  {
-                    "Key": "Email",
-                    "Value": "venkat.raju@example.com"
-                  },
-                  {
-                    "Key": "OrderId",
-                    "Value": "ORD-778899"
-                  },
-                  {
-                    "Key": "OrderDate",
-                    "Value": "09-Feb-2026"
-                  },
-                  {
-                    "Key": "DeliveryWindow",
-                    "Value": "10:00-18:00 IST"
-                  },
-                  {
-                    "Key": "InvoiceNumber",
-                    "Value": "INV-2026-00123"
-                  },
-                  {
-                    "Key": "InvoiceDate",
-                    "Value": "10-Feb-2026"
                   },
                   {
                     "Key": "PaymentMethod",
@@ -195,36 +108,24 @@
                     "Value": "4242"
                   },
                   {
-                    "Key": "PortalUrl",
-                    "Value": "https://portal.contoso.com"
+                    "Key": "InvoiceNumber",
+                    "Value": "INV-2026-01"
                   },
                   {
-                    "Key": "HelpCenterUrl",
-                    "Value": "https://support.contoso.com/help"
+                    "Key": "OrderId",
+                    "Value": "ORD-778899"
                   },
                   {
-                    "Key": "SLA",
-                    "Value": "99.9% Uptime"
+                    "Key": "OrderDate",
+                    "Value": "09-Feb-2026"
                   },
                   {
-                    "Key": "ContractId",
-                    "Value": "CT-555-2026"
+                    "Key": "ShipDate",
+                    "Value": "12-Feb-2026"
                   },
                   {
-                    "Key": "ContractStart",
-                    "Value": "01-Jan-2026"
-                  },
-                  {
-                    "Key": "ContractEnd",
-                    "Value": "31-Dec-2026"
-                  },
-                  {
-                    "Key": "LicenseCount",
-                    "Value": "250"
-                  },
-                  {
-                    "Key": "FeaturePack",
-                    "Value": "Advanced Analytics"
+                    "Key": "TrackingNumber",
+                    "Value": "TRK123456"
                   },
                   {
                     "Key": "UsageThisPeriod",
@@ -235,24 +136,64 @@
                     "Value": "GB"
                   },
                   {
-                    "Key": "RenewalTerm",
-                    "Value": "12 months"
+                    "Key": "LicenseCount",
+                    "Value": "250"
+                  },
+                  {
+                    "Key": "FeaturePack",
+                    "Value": "Analytics"
+                  },
+                  {
+                    "Key": "AccountManager",
+                    "Value": "John Doe"
                   },
                   {
                     "Key": "Department",
                     "Value": "Engineering"
                   },
                   {
-                    "Key": "CostCenter",
-                    "Value": "CC-ENG-0042"
-                  },
-                  {
-                    "Key": "PoNumber",
-                    "Value": "PO-987654"
-                  },
-                  {
                     "Key": "ProjectName",
                     "Value": "Phoenix"
+                  },
+                  {
+                    "Key": "Email",
+                    "Value": "venkat@example.com"
+                  },
+                  {
+                    "Key": "SupportEmail",
+                    "Value": "help@contoso.com"
+                  },
+                  {
+                    "Key": "PortalUrl",
+                    "Value": "https://portal.com"
+                  },
+                  {
+                    "Key": "ContractId",
+                    "Value": "CT-555"
+                  },
+                  {
+                    "Key": "ContractEnd",
+                    "Value": "31-Dec-2026"
+                  },
+                  {
+                    "Key": "Region",
+                    "Value": "APAC"
+                  },
+                  {
+                    "Key": "City",
+                    "Value": "Hyderabad"
+                  },
+                  {
+                    "Key": "Country",
+                    "Value": "India"
+                  },
+                  {
+                    "Key": "CustomerId",
+                    "Value": "CUST-992"
+                  },
+                  {
+                    "Key": "DiscountCode",
+                    "Value": "SAVE15"
                   }
                 ]
               }
@@ -265,11 +206,14 @@
               "Succeeded"
             ]
           },
+          "metadata": {
+            "operationMetadataId": "02ea7242-e73b-4bbb-98fe-3ae9fe76ca87"
+          },
           "type": "Select",
           "inputs": {
             "from": "@variables('Placeholders')",
             "select": {
-              "pair": "@{concat('{{', item()?['Key'], '}}==', item()?['Value'])}"
+              "pair": "@concat('[', item()?['Key'], ']==', item()?['Value'])"
             }
           }
         },
@@ -278,6 +222,9 @@
             "Select_Pairs": [
               "Succeeded"
             ]
+          },
+          "metadata": {
+            "operationMetadataId": "bfd32235-1011-408f-8446-0a65d90950e1"
           },
           "type": "Compose",
           "inputs": "@if(\r\n  greater(length(outputs('Select_Pairs')?['body']), 0),\r\n  replace(\r\n    replace(\r\n      replace(\r\n        string(outputs('Select_Pairs')?['body']),\r\n        '[{\"pair\":\"',\r\n        ''\r\n      ),\r\n      '\"},{\"pair\":\"',\r\n      '||'\r\n    ),\r\n    '\"}]',\r\n    ''\r\n  ),\r\n  ''\r\n)"
@@ -288,17 +235,35 @@
               "Succeeded"
             ]
           },
+          "metadata": {
+            "operationMetadataId": "aba7db3e-5c55-4666-8015-b346825dd32d"
+          },
           "type": "Compose",
           "inputs": "@if(\r\n  equals(outputs('ReducerString'), ''),\r\n  createArray(),\r\n  split(outputs('ReducerString'), '||')\r\n)"
         },
         "FinalHTML": {
           "runAfter": {
+            "PaddedPairs": [
+              "Succeeded"
+            ]
+          },
+          "metadata": {
+            "operationMetadataId": "1cc00666-5c2a-4948-95a9-07ffb7af3e87"
+          },
+          "type": "Compose",
+          "inputs": "@replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(replace(variables('varEmailTemplate'),split(outputs('PaddedPairs')[0],'==')[0],split(outputs('PaddedPairs')[0],'==')[1]),split(outputs('PaddedPairs')[1],'==')[0],split(outputs('PaddedPairs')[1],'==')[1]),split(outputs('PaddedPairs')[2],'==')[0],split(outputs('PaddedPairs')[2],'==')[1]),split(outputs('PaddedPairs')[3],'==')[0],split(outputs('PaddedPairs')[3],'==')[1]),split(outputs('PaddedPairs')[4],'==')[0],split(outputs('PaddedPairs')[4],'==')[1]),split(outputs('PaddedPairs')[5],'==')[0],split(outputs('PaddedPairs')[5],'==')[1]),split(outputs('PaddedPairs')[6],'==')[0],split(outputs('PaddedPairs')[6],'==')[1]),split(outputs('PaddedPairs')[7],'==')[0],split(outputs('PaddedPairs')[7],'==')[1]),split(outputs('PaddedPairs')[8],'==')[0],split(outputs('PaddedPairs')[8],'==')[1]),split(outputs('PaddedPairs')[9],'==')[0],split(outputs('PaddedPairs')[9],'==')[1]),split(outputs('PaddedPairs')[10],'==')[0],split(outputs('PaddedPairs')[10],'==')[1]),split(outputs('PaddedPairs')[11],'==')[0],split(outputs('PaddedPairs')[11],'==')[1]),split(outputs('PaddedPairs')[12],'==')[0],split(outputs('PaddedPairs')[12],'==')[1]),split(outputs('PaddedPairs')[13],'==')[0],split(outputs('PaddedPairs')[13],'==')[1]),split(outputs('PaddedPairs')[14],'==')[0],split(outputs('PaddedPairs')[14],'==')[1]),split(outputs('PaddedPairs')[15],'==')[0],split(outputs('PaddedPairs')[15],'==')[1]),split(outputs('PaddedPairs')[16],'==')[0],split(outputs('PaddedPairs')[16],'==')[1]),split(outputs('PaddedPairs')[17],'==')[0],split(outputs('PaddedPairs')[17],'==')[1]),split(outputs('PaddedPairs')[18],'==')[0],split(outputs('PaddedPairs')[18],'==')[1]),split(outputs('PaddedPairs')[19],'==')[0],split(outputs('PaddedPairs')[19],'==')[1]),split(outputs('PaddedPairs')[20],'==')[0],split(outputs('PaddedPairs')[20],'==')[1]),split(outputs('PaddedPairs')[21],'==')[0],split(outputs('PaddedPairs')[21],'==')[1]),split(outputs('PaddedPairs')[22],'==')[0],split(outputs('PaddedPairs')[22],'==')[1]),split(outputs('PaddedPairs')[23],'==')[0],split(outputs('PaddedPairs')[23],'==')[1]),split(outputs('PaddedPairs')[24],'==')[0],split(outputs('PaddedPairs')[24],'==')[1]),split(outputs('PaddedPairs')[25],'==')[0],split(outputs('PaddedPairs')[25],'==')[1]),split(outputs('PaddedPairs')[26],'==')[0],split(outputs('PaddedPairs')[26],'==')[1]),split(outputs('PaddedPairs')[27],'==')[0],split(outputs('PaddedPairs')[27],'==')[1]),split(outputs('PaddedPairs')[28],'==')[0],split(outputs('PaddedPairs')[28],'==')[1]),split(outputs('PaddedPairs')[29],'==')[0],split(outputs('PaddedPairs')[29],'==')[1]),split(outputs('PaddedPairs')[30],'==')[0],split(outputs('PaddedPairs')[30],'==')[1]),split(outputs('PaddedPairs')[31],'==')[0],split(outputs('PaddedPairs')[31],'==')[1]),split(outputs('PaddedPairs')[32],'==')[0],split(outputs('PaddedPairs')[32],'==')[1]),split(outputs('PaddedPairs')[33],'==')[0],split(outputs('PaddedPairs')[33],'==')[1]),split(outputs('PaddedPairs')[34],'==')[0],split(outputs('PaddedPairs')[34],'==')[1]),split(outputs('PaddedPairs')[35],'==')[0],split(outputs('PaddedPairs')[35],'==')[1]),split(outputs('PaddedPairs')[36],'==')[0],split(outputs('PaddedPairs')[36],'==')[1]),split(outputs('PaddedPairs')[37],'==')[0],split(outputs('PaddedPairs')[37],'==')[1]),split(outputs('PaddedPairs')[38],'==')[0],split(outputs('PaddedPairs')[38],'==')[1]),split(outputs('PaddedPairs')[39],'==')[0],split(outputs('PaddedPairs')[39],'==')[1]),split(outputs('PaddedPairs')[40],'==')[0],split(outputs('PaddedPairs')[40],'==')[1]),split(outputs('PaddedPairs')[41],'==')[0],split(outputs('PaddedPairs')[41],'==')[1]),split(outputs('PaddedPairs')[42],'==')[0],split(outputs('PaddedPairs')[42],'==')[1]),split(outputs('PaddedPairs')[43],'==')[0],split(outputs('PaddedPairs')[43],'==')[1]),split(outputs('PaddedPairs')[44],'==')[0],split(outputs('PaddedPairs')[44],'==')[1]),split(outputs('PaddedPairs')[45],'==')[0],split(outputs('PaddedPairs')[45],'==')[1]),split(outputs('PaddedPairs')[46],'==')[0],split(outputs('PaddedPairs')[46],'==')[1]),split(outputs('PaddedPairs')[47],'==')[0],split(outputs('PaddedPairs')[47],'==')[1]),split(outputs('PaddedPairs')[48],'==')[0],split(outputs('PaddedPairs')[48],'==')[1]),split(outputs('PaddedPairs')[49],'==')[0],split(outputs('PaddedPairs')[49],'==')[1])"
+        },
+        "PaddedPairs": {
+          "runAfter": {
             "PairsArray": [
               "Succeeded"
             ]
           },
+          "metadata": {
+            "operationMetadataId": "1bbfec8b-c972-464b-a5e6-befd49e076a7"
+          },
           "type": "Compose",
-          "inputs": "@if(\r\n  greater(length(outputs('PairsArray')), 0),\r\n  replace(\r\n    if(\r\n      greater(length(outputs('PairsArray')), 1),\r\n      replace(\r\n        if(\r\n          greater(length(outputs('PairsArray')), 2),\r\n          replace(\r\n            if(\r\n              greater(length(outputs('PairsArray')), 3),\r\n              replace(\r\n                if(\r\n                  greater(length(outputs('PairsArray')), 4),\r\n                  replace(\r\n                    if(\r\n                      greater(length(outputs('PairsArray')), 5),\r\n                      replace(\r\n                        if(\r\n                          greater(length(outputs('PairsArray')), 6),\r\n                          replace(\r\n                            if(\r\n                              greater(length(outputs('PairsArray')), 7),\r\n                              replace(\r\n                                if(\r\n                                  greater(length(outputs('PairsArray')), 8),\r\n                                  replace(\r\n                                    if(\r\n                                      greater(length(outputs('PairsArray')), 9),\r\n                                      replace(\r\n                                        if(\r\n                                          greater(length(outputs('PairsArray')), 10),\r\n                                          replace(\r\n                                            if(\r\n                                              greater(length(outputs('PairsArray')), 11),\r\n                                              replace(\r\n                                                variables('Template'),\r\n                                                split(outputs('PairsArray')[11], '==')[0],\r\n                                                split(outputs('PairsArray')[11], '==')[1]\r\n                                              ),\r\n                                              variables('Template')\r\n                                            ),\r\n                                            split(outputs('PairsArray')[10], '==')[0],\r\n                                            split(outputs('PairsArray')[10], '==')[1]\r\n                                          ),\r\n                                          variables('Template')\r\n                                        ),\r\n                                        split(outputs('PairsArray')[9], '==')[0],\r\n                                        split(outputs('PairsArray')[9], '==')[1]\r\n                                      ),\r\n                                      variables('Template')\r\n                                    ),\r\n                                    split(outputs('PairsArray')[8], '==')[0],\r\n                                    split(outputs('PairsArray')[8], '==')[1]\r\n                                  ),\r\n                                  variables('Template')\r\n                                ),\r\n                                split(outputs('PairsArray')[7], '==')[0],\r\n                                split(outputs('PairsArray')[7], '==')[1]\r\n                              ),\r\n                              variables('Template')\r\n                            ),\r\n                            split(outputs('PairsArray')[6], '==')[0],\r\n                            split(outputs('PairsArray')[6], '==')[1]\r\n                          ),\r\n                          variables('Template')\r\n                        ),\r\n                        split(outputs('PairsArray')[5], '==')[0],\r\n                        split(outputs('PairsArray')[5], '==')[1]\r\n                      ),\r\n                      variables('Template')\r\n                    ),\r\n                    split(outputs('PairsArray')[4], '==')[0],\r\n                    split(outputs('PairsArray')[4], '==')[1]\r\n                  ),\r\n                  variables('Template')\r\n                ),\r\n                split(outputs('PairsArray')[3], '==')[0],\r\n                split(outputs('PairsArray')[3], '==')[1]\r\n              ),\r\n              variables('Template')\r\n            ),\r\n            split(outputs('PairsArray')[2], '==')[0],\r\n            split(outputs('PairsArray')[2], '==')[1]\r\n          ),\r\n          variables('Template')\r\n        ),\r\n        split(outputs('PairsArray')[1], '==')[0],\r\n        split(outputs('PairsArray')[1], '==')[1]\r\n      ),\r\n      variables('Template')\r\n    ),\r\n    split(outputs('PairsArray')[0], '==')[0],\r\n    split(outputs('PairsArray')[0], '==')[1]\r\n  ),\r\n  variables('Template')\r\n)"
+          "inputs": "@\r\ntake(\r\n  split(\r\n    concat(\r\n      join(outputs('PairsArray'), '⟂SEP⟂'),\r\n      if(equals(length(outputs('PairsArray')), 0), '', '⟂SEP⟂'),\r\n      join(\r\n        json('[\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\",\"DUMMY==DUMMY\"]'),\r\n '⟂SEP⟂'\r\n      )\r\n    ),\r\n    '⟂SEP⟂'\r\n  ),\r\n  50\r\n)"
         }
       }
     },
