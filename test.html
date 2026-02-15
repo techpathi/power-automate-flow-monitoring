@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+  <body style="font-family:Segoe UI, Arial, sans-serif; color:#2b2b2b;">
+
+    <h2>Hello [FirstName] [LastName],</h2>
+
+    <p>
+      Welcome to <strong>[CompanyName]</strong>.
+    </p>
+
+    <h3>Subscription</h3>
+    <p>
+      <strong>Name:</strong> [SubscriptionName]<br/>
+      <strong>ID:</strong> [SubscriptionId]<br/>
+      <strong>Status:</strong> [SubscriptionStatus]<br/>
+      <strong>Start:</strong> [StartDate]<br/>
+      <strong>End:</strong> [EndDate]<br/>
+      <strong>Plan:</strong> [PlanType]<br/>
+      <strong>Renewal:</strong> [RenewalDate]
+    </p>
+
+    <h3>Invoice Summary</h3>
+    [InvoiceSummaryHtml]
+
+    <h3>Usage Details</h3>
+    [UsageHtml]
+
+    <h3>Order Information</h3>
+    [OrderTableHtml]
+
+    <h3>Special Promotion</h3>
+    [PromotionBanner]
+
+    <h3>Payment Details</h3>
+    <p>
+      Method: [PaymentMethod]<br/>
+      Cycle: [BillingCycle]<br/>
+      Next Billing: [NextBillingDate]<br/>
+      Outstanding: [OutstandingAmount]
+    </p>
+
+    <h3>Account Details</h3>
+    <p>
+      Customer ID: [CustomerId]<br/>
+      Tier: [AccountTier]<br/>
+      Loyalty Points: [LoyaltyPoints]<br/>
+      Referral: [ReferralCode]
+    </p>
+
+    <h3>Address</h3>
+    <p>
+      [AddressLine1]<br/>
+      [AddressLine2]<br/>
+      [PostalCode]<br/>
+      [City], [Region]<br/>
+      [Country]
+    </p>
+
+    <h3>Support</h3>
+    <p>
+      Portal: <a href="[PortalUrl]">[PortalUrl]</a><br/>
+      Email: <a href="mailto:[SupportEmail]">[SupportEmail]</a><br/>
+      Phone: [SupportPhone]<br/>
+      Ticket: [TicketId]
+    </p>
+
+    <h3>System Metadata</h3>
+    <p>
+      Transaction: [TransactionId]<br/>
+      Order: [OrderId]<br/>
+      Environment: [Environment]<br/>
+      Generated: [GeneratedOn]<br/>
+      Timezone: [Timezone]
+    </p>
+
+    <h3>Notes</h3>
+    <div style="white-space: pre-line;">
+      [MultilineNote]
+    </div>
+
+    <hr/>
+
+    <p style="font-size:12px;color:#666;">
+      Managed by [AccountManager] - [Department]<br/>
+      Sales Rep: [SalesRep]<br/>
+      Manager: [ManagerEmail]<br/>
+      Escalation: [EscalationContact]<br/>
+      Registration: [CompanyRegistrationNumber]
+    </p>
+
+  </body>
+</html>
