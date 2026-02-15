@@ -1,0 +1,58 @@
+[
+  { "Key": "FirstName", "Value": "Venkat" },
+  { "Key": "LastName", "Value": "Raju" },
+  { "Key": "CompanyName", "Value": "Contoso & Sons \"Global\" <Enterprises> \\ Division" },
+
+  { "Key": "SubscriptionName", "Value": "Premium Suite / Enterprise" },
+  { "Key": "SubscriptionId", "Value": "SUB-448201==ACTIVE" },
+  { "Key": "SubscriptionStatus", "Value": "Active | Verified" },
+  { "Key": "StartDate", "Value": "10-Feb-2025" },
+  { "Key": "EndDate", "Value": "10-Feb-2026" },
+  { "Key": "PlanType", "Value": "Enterprise \"Gold\" Tier" },
+  { "Key": "RenewalDate", "Value": "10-Feb-2026" },
+
+  { "Key": "InvoiceSummaryHtml", "Value": "<div style=\"background:#f9f9f9;padding:10px;border:1px solid #ddd;\">\r\n<strong>Invoice:</strong> INV-2026-01<br/>\n<strong>Amount:</strong> USD 199.00 &amp; Taxes<br/>\t<strong>Payment:</strong> Credit Card (**** 4242) \\ Backslash / Slash\n<script>var test=\"JSON==VALUE||PIPE\";</script>\n</div>" },
+
+  { "Key": "UsageHtml", "Value": "<ul>\n<li>Usage: 1450 GB</li>\r\n<li>Licenses: 250 &lt;Unlimited&gt;</li>\n<li>Feature Pack: AI || ML</li>\n<li>Unicode: ₹ € ✓ 漢字 🚀</li>\n</ul>" },
+
+  { "Key": "OrderTableHtml", "Value": "<table border='1'>\n<tr><td>ORD-778899</td><td>09-Feb-2026</td></tr>\n<tr><td>Special==Order</td><td>Pipe||Test</td></tr>\n</table>" },
+
+  { "Key": "PromotionBanner", "Value": "<div style='background:#eef;'>\n<strong>Use code SAVE15 & SAVE20</strong>\nJSON: {\"promo\":\"value==test||pipe\"}\n</div>" },
+
+  { "Key": "PaymentMethod", "Value": "Credit Card \\ Secure" },
+  { "Key": "BillingCycle", "Value": "Monthly || Annual" },
+  { "Key": "NextBillingDate", "Value": "10-Mar-2026" },
+  { "Key": "OutstandingAmount", "Value": "USD 0.00 & Tax Included" },
+
+  { "Key": "CustomerId", "Value": "CUST-992" },
+  { "Key": "AccountTier", "Value": "Gold <Premium>" },
+  { "Key": "LoyaltyPoints", "Value": "12450" },
+  { "Key": "ReferralCode", "Value": "REF==2026||SPECIAL⟂SEP⟂END" },
+
+  { "Key": "AddressLine1", "Value": "Hitech City \\ Block-A \"Tower\"" },
+  { "Key": "AddressLine2", "Value": "Phase-2 / Innovation Hub" },
+  { "Key": "PostalCode", "Value": "500081" },
+  { "Key": "City", "Value": "Hyderabad" },
+  { "Key": "Region", "Value": "APAC" },
+  { "Key": "Country", "Value": "India" },
+
+  { "Key": "PortalUrl", "Value": "https://portal.com/path?x=1&y=2" },
+  { "Key": "SupportEmail", "Value": "help@contoso.com" },
+  { "Key": "SupportPhone", "Value": "+91-9000000000" },
+  { "Key": "TicketId", "Value": "TCK-7788==OPEN" },
+
+  { "Key": "TransactionId", "Value": "TXN-556677||CONFIRMED" },
+  { "Key": "OrderId", "Value": "ORD-778899" },
+  { "Key": "Environment", "Value": "Production / Live" },
+  { "Key": "GeneratedOn", "Value": "14-Feb-2026 10:30 AM" },
+  { "Key": "Timezone", "Value": "IST (UTC+5:30)" },
+
+  { "Key": "MultilineNote", "Value": "Line1\nLine2\r\nLine3\tTabbed\nBackslash \\\nDouble Quote \"Test\"\nSingle Quote 'Test'\nEquals == Test\nDelimiter || Test\nSeparator ⟂SEP⟂ Test\nUnicode ₹ ✓ 🚀" },
+
+  { "Key": "AccountManager", "Value": "John Doe" },
+  { "Key": "Department", "Value": "Engineering & R&D" },
+  { "Key": "SalesRep", "Value": "Anita Sharma" },
+  { "Key": "ManagerEmail", "Value": "manager@contoso.com" },
+  { "Key": "EscalationContact", "Value": "escalation@contoso.com" },
+  { "Key": "CompanyRegistrationNumber", "Value": "CIN-778899AA/2026" }
+]
